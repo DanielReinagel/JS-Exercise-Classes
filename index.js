@@ -141,7 +141,8 @@ class Instructor extends Lambdasian{
     return `Today we are learning about ${subjectStr}`;
   }
   grade(studentObj, subjectStr){
-    return `${studentObj.name} receives a perfect score on ${subjectStr}`;
+    studentObj.grade = Math.floor(Math.random()*101); //Stretch
+    return `${studentObj.name} receives ${studentObj.grade} percent on ${subjectStr}`; //Stretch
   }
 }
 
@@ -162,21 +163,25 @@ class Instructor extends Lambdasian{
 */
 
 class Student extends Lambdasian{
-   constructor(obj){
-     super(obj);
-     this.previousBackground = obj.previousBackground;
-     this.className = obj.className;
-     this.favSubjects = obj.favSubjects;
-   }
-   listSubjects(){
-     return `Loving ${this.favSubjects}!`;
-   }
-   PRAssignment(subjectStr){
-     return `${this.name} has submitted a PR for ${subjectStr}`;
-   }
-   sprintChallenge(subjectStr){
+  constructor(obj){
+    super(obj);
+    this.previousBackground = obj.previousBackground;
+    this.className = obj.className;
+    this.favSubjects = obj.favSubjects;
+    this.grade = 100; //stretch
+  }
+  listSubjects(){
+    return `Loving ${this.favSubjects}!`;
+  }
+  PRAssignment(subjectStr){
+    return `${this.name} has submitted a PR for ${subjectStr}`;
+  }
+  sprintChallenge(subjectStr){
     return `${this.name} has begun sprint challenge on ${subjectStr}`;
-   }
+  }
+  graduate(){ //Stretch
+    if(this.grade>70) return `${this.name} graduates from Lambda School`; //Stretch
+  } //Stretch
 }
 
 /*
@@ -216,7 +221,7 @@ class ProjectManager extends Instructor{
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
 
-
+//Stretch stuff done in the code above
 
 //End of Challenge
 /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
